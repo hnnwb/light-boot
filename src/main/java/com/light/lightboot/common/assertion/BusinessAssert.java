@@ -2,18 +2,18 @@ package com.light.lightboot.common.assertion;
 
 import cn.hutool.core.util.ArrayUtil;
 import com.light.lightboot.common.enums.IResponseEnum;
-import com.light.lightboot.common.exception.ArgumentException;
 import com.light.lightboot.common.exception.BaseException;
+import com.light.lightboot.common.exception.BusinessException;
 
 import java.text.MessageFormat;
 
 /**
- * <p>通用异常断言</p>
+ * <p>业务异常断言</p>
  *
  * @author wb
  * @Date: 2022/02/22/
  */
-public interface CommonAssert extends IResponseEnum,Assert {
+public interface BusinessAssert extends IResponseEnum,Assert {
 
     @Override
     default BaseException newException(Object... args) {
@@ -21,7 +21,7 @@ public interface CommonAssert extends IResponseEnum,Assert {
         if (ArrayUtil.isNotEmpty(args)) {
             message = MessageFormat.format(this.getMessage(),args);
         }
-        return new ArgumentException(this,args,message);
+        return new BusinessException(this,args,message);
     }
 
     @Override
@@ -30,6 +30,6 @@ public interface CommonAssert extends IResponseEnum,Assert {
         if (ArrayUtil.isNotEmpty(args)) {
             message = MessageFormat.format(this.getMessage(),args);
         }
-        return new ArgumentException(this,args,message,t);
+        return new BusinessException(this,args,message,t);
     }
 }

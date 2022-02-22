@@ -8,28 +8,30 @@ import com.light.lightboot.common.exception.BaseException;
 import java.text.MessageFormat;
 
 /**
- * <p>通用异常断言</p>
+ * <p>参数异常断言</p>
  *
  * @author wb
  * @Date: 2022/02/22/
  */
-public interface CommonAssert extends IResponseEnum,Assert {
+public interface ArgumentAssert extends IResponseEnum,Assert {
 
     @Override
     default BaseException newException(Object... args) {
-        String message = this.getMessage();
+        String msg = this.getMessage();
         if (ArrayUtil.isNotEmpty(args)) {
-            message = MessageFormat.format(this.getMessage(),args);
+            msg = MessageFormat.format(this.getMessage(), args);
         }
-        return new ArgumentException(this,args,message);
+
+        return new ArgumentException(this, args, msg);
     }
 
     @Override
     default BaseException newException(Throwable t, Object... args) {
-        String message = this.getMessage();
+        String msg = this.getMessage();
         if (ArrayUtil.isNotEmpty(args)) {
-            message = MessageFormat.format(this.getMessage(),args);
+            msg = MessageFormat.format(this.getMessage(), args);
         }
-        return new ArgumentException(this,args,message,t);
+
+        return new ArgumentException(this, args, msg, t);
     }
 }

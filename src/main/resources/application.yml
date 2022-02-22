@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: light-boot
+server:
+  port: 18888

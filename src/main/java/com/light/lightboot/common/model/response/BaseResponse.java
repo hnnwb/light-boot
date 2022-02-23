@@ -12,7 +12,6 @@ import lombok.Data;
  */
 @Data
 public class BaseResponse {
-
     /**
      * 返回码
      */
@@ -35,4 +34,5 @@ public class BaseResponse {
         this.code = code;
         this.message = message;
     }
+
 }

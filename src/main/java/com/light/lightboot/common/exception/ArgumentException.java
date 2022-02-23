@@ -3,7 +3,7 @@ package com.light.lightboot.common.exception;
 import com.light.lightboot.common.enums.IResponseEnum;
 
 /**
- * <p>参数异常</p>
+ * <p>参数异常,业务过程校验参数可抛出该异常，封装工具类时校验参数可抛出该异常</p>
  *
  * @author wb
  * @Date: 2022/02/22/

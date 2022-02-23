@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import java.util.Locale;
 
 /**
- * <p></p>
+ * <p>消息国际化处理</p>
  *
  * @author wb
  * @Date: 2022/02/22/

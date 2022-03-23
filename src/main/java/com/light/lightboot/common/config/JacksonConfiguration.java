@@ -1,5 +1,6 @@
 package com.light.lightboot.common.config;
 
+import cn.hutool.core.date.LocalDateTimeUtil;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -54,7 +55,7 @@ public class JacksonConfiguration {
             if (value == null) {
                 jsonGenerator.writeNull();
             } else {
-                jsonGenerator.writeNumber(TimeUtil.toMilli(value));
+                jsonGenerator.writeNumber(LocalDateTimeUtil.toEpochMilli(value));
             }
         }
     }
@@ -69,7 +70,7 @@ public class JacksonConfiguration {
             if (value == null) {
                 jsonGenerator.writeNull();
             } else {
-                jsonGenerator.writeNumber(TimeUtil.toMilli(value));
+                jsonGenerator.writeNumber(LocalDateTimeUtil.toEpochMilli(value));
             }
         }
     }
@@ -84,7 +85,7 @@ public class JacksonConfiguration {
             if (value == null) {
                 jsonGenerator.writeNull();
             } else {
-                jsonGenerator.writeNumber(TimeUtil.toMilli(value));
+                jsonGenerator.writeNumber(LocalDateTimeUtil.toEpochMilli(value));
             }
         }
     }
@@ -134,9 +135,8 @@ public class JacksonConfiguration {
                 if (string.length() == 0) {
                     return null;
                 }
-
                 long timestamp = Long.parseLong(string);
-                return TimeUtil.toLocalTime(timestamp);
+                return TimeUtil.toLocalDateTime(timestamp).toLocalTime();
             }
             return null;
         }

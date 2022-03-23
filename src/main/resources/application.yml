@@ -1,5 +1,9 @@
+server:
+  port: 18888
 spring:
   application:
     name: light-boot
-server:
-  port: 18888
+  datasource:
+    url: jdbc:mysql://localhost:3306/practice?rewriteBatchedStatements=true
+    username: root
+    password: 123456

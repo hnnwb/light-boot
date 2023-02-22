@@ -27,7 +27,7 @@ public class RedisDelayQueueRunner implements CommandLineRunner {
             new LinkedBlockingQueue<Runnable>(1000), Executors.defaultThreadFactory());
 	@Override
 	public void run(String... args) {
-		CompletableFuture.runAsync(this::runRedisDelayQueue);
+		CompletableFuture.runAsync(this::runRedisDelayQueue,executorService);
 		log.info("(Redis延迟队列启动成功)");
 	}
 
